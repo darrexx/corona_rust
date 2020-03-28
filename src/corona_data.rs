@@ -1,24 +1,23 @@
 
 use serde::Deserialize;
 
+#[allow(non_snake_case)]
 #[derive(Deserialize, Debug, Clone)]
 pub struct Location{
-    id: usize,
     pub country: String,
-    pub country_code: String,
-    pub country_population: Option<u32>,
-    pub province: String,
-    pub latest: LatestCoronaData,
+    pub countryInfo: CountryInfo,
+    pub cases: i32,
+    pub todayCases: i32,
+    pub deaths: i32,
+    pub todayDeaths: i32,
+    pub recovered: i32,
+    pub active: i32,
+    pub critical: i32,
+    pub casesPerOneMillion: f64,
+    pub deathsPerOneMillion: f64,
 }
 
-#[derive(Deserialize,Debug, Clone)]
-pub struct LatestCoronaData{
-    pub confirmed : isize, //possible -1!
-    pub deaths: isize,
-    pub recovered: isize,
-}
-
-#[derive(Deserialize)]
-pub struct CoronaResponse{
-    pub locations: Vec<Location>
+#[derive(Deserialize, Debug, Clone)]
+pub struct CountryInfo{
+    pub iso2: Option<String>,
 }

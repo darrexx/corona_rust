@@ -13,8 +13,8 @@ pub struct Location{
     pub recovered: i32,
     pub active: i32,
     pub critical: i32,
-    pub casesPerOneMillion: f64,
-    pub deathsPerOneMillion: f64,
+    pub casesPerOneMillion: Option<f64>,
+    pub deathsPerOneMillion: Option<f64>,
 }
 
 #[derive(Deserialize, Debug, Clone)]
